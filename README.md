@@ -5,7 +5,7 @@
 
 Решение применимо для СУБД PostgreSQL
 
-## Task 1
+## Задача 1
 
 Существуют таблицы, в которых хранятся данные о товарах в документах:
 
@@ -21,7 +21,7 @@
 
 Необходимо сформировать одним SQL запросом баланс по всем товарам с группировкой по каждому товару. Баланс  есть (сумма прихода по товару) - (сумма расхода по товару) в денежном выражении. Желательно без подзапросов.
 
-## Solution for task 1
+## Решение для задачи 1
 
 
 ```sql
@@ -35,13 +35,13 @@ where docs.state= true
 group by goods.Good_code;
 ```
 
-## Task 2
+## Задача 2
 
 Написать функцию с тремя числовыми опциональными параметрами (каждый из них по умолчанию=null), возвращающую значение минимального из непустых параметров (без использования функции nvl, decode, coalesce). 
 
 **Function min3(pVal1 number:=null, pVal2 number:=null, pVal3 number:=null) return number;**
 
-## Solution for task 2
+## Решение для задачи 2
 
 ```sql
 CREATE OR REPLACE FUNCTION min3( pVal1 numeric DEFAULT null, pVal2 numeric DEFAULT null, pVal3 numeric DEFAULT null) 
@@ -50,7 +50,7 @@ CREATE OR REPLACE FUNCTION min3( pVal1 numeric DEFAULT null, pVal2 numeric DEFAU
     LANGUAGE SQL;
 ```
 
-## Task 3
+## Задача 3
 
 Таблицы:
 
@@ -84,7 +84,7 @@ CREATE OR REPLACE FUNCTION min3( pVal1 numeric DEFAULT null, pVal2 numeric DEFAU
 
 Вывести название кабинетов, в которых суммарное число оказанных приемов максимально.
 
-## Solution for task 3
+## Решение для задачи 3
 
 ```sql
 select t1.name "Название кабинета", t1.count_visits "Суммарное число оказанных приемов" 
