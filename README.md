@@ -86,12 +86,20 @@ CREATE OR REPLACE FUNCTION min3( pVal1 numeric DEFAULT null, pVal2 numeric DEFAU
 
 ## Solution for task 3
 
-написать 
+```sql
+select t1.name "Название кабинета", t1.count_visits "Суммарное число оказанных приемов" 
+from (	select cablabs.name as name, count(visits.id) as  count_visits
+		from cablabs
+		join visits on visits.cablab_id = cablabs.id
+	  	group by cablabs.id
+		) as t1
+where t1.count_visits = (select max(t1.count_visits) from t1);
+``` 
 
 ## Для загрузки файлов
 
 Файлы с кодом расположены в каталоге code_files этого проекта.
 
-Для загрузке проекта используем:
+Для загрузки проекта используем:
 
 `git clone https://github.com/SergeyVlK/Novosoft_sql_task.git`
